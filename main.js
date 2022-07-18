@@ -1,3 +1,5 @@
+// AUTHOR : Berke (discord id : 286563564595183616)
+
 const discord = require("discord.js")
 const client = new discord.Client()
 
