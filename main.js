@@ -33,15 +33,16 @@ client.on("message", (msg) => {
                 },
                 reason: `new role for ${msg.author.username}`,
             })
+            .then(role => {
+                msg.member.roles.add(role)
+            })
         } else {
-            if (msg.author.id != "971850453031747654") {
-                msg.reply("Rolünüz Halihazırda Bulunmaktadır EFENDIM.")
-            } else {
+            if (msg.author.id == "971850453031747654") {
                 msg.reply("Rolünüz Halihazırda Bulunmaktadır. (canımsın jindacık)")
+            } else {
+                msg.reply("Rolünüz Halihazırda Bulunmaktadır EFENDIM.")
             }
         }
-        let role = msg.guild.roles.cache.find(role => role.name === msg.author.username);
-        msg.member.roles.add(role)
     } else if (prefix(message, "b?yardım")) {
         msg.reply("Renk İçin : c?hex_kodu\nRol Oluşturmak İçin : r?yeni\nYardım İçinde İşte : b?yardım\n\nRenk Hex kodları İçin https://htmlcolorcodes.com/ Sitesini Kullanabilirsiniz.")
     }
